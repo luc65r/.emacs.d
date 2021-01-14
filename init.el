@@ -11,7 +11,10 @@
 ;(add-to-list 'org-latex-packages-alist
 ;             '("AUTO" "babel" t ("pdflatex")))
 
-(ido-mode t)
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
+
 
 (rg-enable-default-bindings)
 
