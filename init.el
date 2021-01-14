@@ -33,6 +33,8 @@
 
 (setq lsp-enable-on-type-formatting nil)
 
+(setq ccls-initialization-options '(:compilationDatabaseDirectory "build"))
+
 (setq c-default-style "java"
       c-basic-offset 4)
 
