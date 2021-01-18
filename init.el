@@ -12,9 +12,9 @@
 ;             '("AUTO" "babel" t ("pdflatex")))
 
 (ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq ivy-count-format "(%d/%d) ")
-
+(setq ivy-use-virtual-buffers t
+      ivy-count-format "(%d/%d) "
+      ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
 
 (rg-enable-default-bindings)
 
