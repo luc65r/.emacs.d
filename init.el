@@ -49,3 +49,5 @@
 (require 'org)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
+
+(require 'mu4e)
