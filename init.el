@@ -51,3 +51,19 @@
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
 
 (require 'mu4e)
+(setq mu4e-get-mail-command "mbsync -a"
+      mu4e-contexts
+      `(,(make-mu4e-context
+	  :name "Tedomum"
+	  :enter-func (lambda () (mu4e-message "Entering Tedomum context"))
+	  :leave-func (lambda () (mu4e-message "Leaving Tedomum context"))
+	  :match-func (lambda (msg)
+			(when msg
+			  (string-match-p "^/tedomum"
+					  (mu4e-message-field msg :maildir))))
+	  :vars '((user-mail-address . "lucas@ransan.tk")
+		  (user-full-name . "Lucas Ransan")
+		  (mu4e-sent-folder . "/tedomum/Sent")
+		  (mu4e-drafts-folder . "/tedomum/Drafts")
+		  (mu4e-trash-folder . "/tedomum/Trash")
+		  (mu4e-refile-folder . "/tedomum/Archive")))))
