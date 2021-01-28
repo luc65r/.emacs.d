@@ -68,3 +68,11 @@
 		  (mu4e-trash-folder . "/tedomum/Trash")
 		  (mu4e-refile-folder . "/tedomum/Archive"))))
       mu4e-headers-date-format "%F")
+
+(require 'emms-setup)
+(require 'emms-player-mpd)
+(emms-all)
+(add-to-list 'emms-info-functions 'emms-info-mpd)
+(add-to-list 'emms-player-list 'emms-player-mpd)
+(setq emms-player-mpd-server-name "localhost"
+      emms-player-mpd-server-port "6600")
