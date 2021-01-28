@@ -66,4 +66,5 @@
 		  (mu4e-sent-folder . "/tedomum/Sent")
 		  (mu4e-drafts-folder . "/tedomum/Drafts")
 		  (mu4e-trash-folder . "/tedomum/Trash")
-		  (mu4e-refile-folder . "/tedomum/Archive")))))
+		  (mu4e-refile-folder . "/tedomum/Archive"))))
+      mu4e-headers-date-format "%F")
