@@ -51,12 +51,13 @@
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
 
 (require 'mu4e)
-(setq mu4e-get-mail-command "mbsync -a"
+(setq mail-user-agent 'mu4e-user-agent
+      mu4e-get-mail-command "mbsync -a"
       mu4e-contexts
       `(,(make-mu4e-context
-	  :name "Tedomum"
-	  :enter-func (lambda () (mu4e-message "Entering Tedomum context"))
-	  :leave-func (lambda () (mu4e-message "Leaving Tedomum context"))
+	  :name "tedomum"
+	  :enter-func (lambda () (mu4e-message "Entering tedomum context"))
+	  :leave-func (lambda () (mu4e-message "Leaving tedomum context"))
 	  :match-func (lambda (msg)
 			(when msg
 			  (string-match-p "^/tedomum"
@@ -66,8 +67,29 @@
 		  (mu4e-sent-folder . "/tedomum/Sent")
 		  (mu4e-drafts-folder . "/tedomum/Drafts")
 		  (mu4e-trash-folder . "/tedomum/Trash")
-		  (mu4e-refile-folder . "/tedomum/Archive"))))
-      mu4e-headers-date-format "%F")
+		  (mu4e-refile-folder . "/tedomum/Archive")))
+	,(make-mu4e-context
+	  :name "eisti"
+	  :enter-func (lambda () (mu4e-message "Entering eisti context"))
+	  :leave-func (lambda () (mu4e-message "Leaving eisti context"))
+	  :match-func (lambda (msg)
+			(when msg
+			  (string-match-p "^/eisti"
+					  (mu4e-message-field msg :maildir))))
+	  :vars '((user-mail-address . "lucas.ransan@eisti.eu")
+		  (user-full-name . "Lucas Ransan")
+		  (mu4e-sent-folder . "/eisti/[Gmail]/Messages envoy&AOk-s")
+		  (mu4e-drafts-folder . "/eisti/[Gmail]/Brouillons")
+		  (mu4e-trash-folder . "/eisti/[Gmail]/Corbeille")
+		  (mu4e-refile-folder . "/eisti/[Gmail]/Tous les messages")
+		  (mu4e-sent-messages-behavior . delete))))
+      mu4e-headers-date-format "%F"
+      mu4e-use-fancy-chars t
+      sendmail-program "msmtp"
+      message-sendmail-f-is-evil t
+      message-sendmail-extra-arguments '("--read-envelope-from")
+      send-mail-function 'smtpmail-send-it
+      message-send-mail-function 'message-send-mail-with-sendmail)
 
 (require 'emms-setup)
 (require 'emms-player-mpd)
