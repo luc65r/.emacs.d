@@ -76,3 +76,5 @@
 (add-to-list 'emms-player-list 'emms-player-mpd)
 (setq emms-player-mpd-server-name "localhost"
       emms-player-mpd-server-port "6600")
+
+(setq asm-comment-char ?#)
