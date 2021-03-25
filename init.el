@@ -23,6 +23,11 @@
 
 (pdf-loader-install)
 
+(setq TeX-view-program-selection
+      '((output-pdf "PDF Tools")))
+(add-hook 'TeX-after-compilation-finished-functions
+          #'TeX-revert-document-buffer)
+
 (require 'lsp)
 (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
 (lsp-register-client
