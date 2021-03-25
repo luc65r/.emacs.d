@@ -21,6 +21,8 @@
 ; Use a new terminal type instead of "dumb" for special care
 (setq tramp-terminal-type "tramp")
 
+(pdf-loader-install)
+
 (require 'lsp)
 (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
 (lsp-register-client
