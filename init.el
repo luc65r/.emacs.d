@@ -44,6 +44,11 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-minimum-prefix-length 1
       company-idle-delay 0.0)
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "RET") nil)
+  (define-key company-active-map (kbd "<return>") nil)
+  (define-key company-active-map (kbd "C-RET") #'company-complete-selection)
+  (define-key company-active-map (kbd "C-<return>") #'company-complete-selection))
 
 (setq lsp-enable-on-type-formatting nil)
 
