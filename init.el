@@ -11,6 +11,14 @@
 ;(add-to-list 'org-latex-packages-alist
 ;             '("AUTO" "babel" t ("pdflatex")))
 
+(setq backup-by-copying t
+      backup-directory-alist `(("." . "~/.saves"))
+      vc-make-backup-files t
+      version-control t
+      delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2)
+
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t
       ivy-count-format "(%d/%d) "
