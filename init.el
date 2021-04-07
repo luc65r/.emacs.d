@@ -104,3 +104,6 @@
       emms-player-mpd-server-port "6600")
 
 (setq asm-comment-char ?#)
+
+(setq nasm-basic-offset 4
+      nasm-after-mnemonic-whitespace nil)
